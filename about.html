@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananya Singhania</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f4faf6;
+            --surface: #ffffff;
+            --mint: #d7f7e5;
+            --ink: #16241c;
+            --muted: #56685d;
+            --accent: #1f6b45;
+            --line: #dce9e1;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0f1713;
+                --surface: #17221c;
+                --mint: #1d3327;
+                --ink: #e8f2ec;
+                --muted: #9fb3a7;
+                --accent: #7fd6a6;
+                --line: #25362c;
+            }
+        }
+        :root[data-theme="dark"] {
+                --bg: #0f1713;
+                --surface: #17221c;
+                --mint: #1d3327;
+                --ink: #e8f2ec;
+                --muted: #9fb3a7;
+                --accent: #7fd6a6;
+                --line: #25362c;
+            }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+        }
+        .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 48px;
+            align-items: center;
+            padding: 72px 0 56px;
+        }
+        .hero-photo {
+            aspect-ratio: 4 / 5;
+            border-radius: 28px;
+            overflow: hidden;
+            background: var(--mint);
+            box-shadow: 0 20px 50px -20px rgba(22, 60, 40, .35);
+        }
+        .hero-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: 46% 40%;
+            display: block;
+        }
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 0 0 12px;
+        }
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            font-size: clamp(44px, 7vw, 72px);
+            line-height: 1.02;
+            margin: 0 0 20px;
+        }
+        h1 em { color: var(--accent); }
+        .lede { font-size: 18px; color: var(--muted); margin: 0 0 28px; max-width: 34em; }
+        .links { display: flex; flex-wrap: wrap; gap: 12px; }
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+        }
+        .btn.primary { background: var(--accent); color: var(--bg); }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 72px;
+        }
+        .stat {
+            background: var(--mint);
+            border-radius: 18px;
+            padding: 20px;
+        }
+        .stat b {
+            display: block;
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            font-size: 36px;
+            line-height: 1.1;
+        }
+        .stat span { font-size: 14px; color: var(--muted); }
+
+        /* Sections */
+        section { margin-bottom: 64px; }
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            font-size: 34px;
+            margin: 0 0 20px;
+        }
+        .about p { font-size: 17px; max-width: 42em; margin: 0 0 14px; }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 22px 24px;
+        }
+        .card h3 { margin: 0 0 4px; font-size: 18px; }
+        .card .meta { color: var(--accent); font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .card p { margin: 0; color: var(--muted); font-size: 15px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 15px;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 32px 0 48px;
+            color: var(--muted);
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        footer a { color: var(--accent); }
+
+        @media (max-width: 760px) {
+            .hero { grid-template-columns: 1fr; gap: 28px; padding: 32px 0 40px; }
+            .hero-photo { aspect-ratio: 1 / 1; max-width: 360px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <header class="hero">
+        <div class="hero-photo">
+            <img src="image.jpeg" alt="Ananya Singhania smiling outdoors against a backdrop of green trees">
+        </div>
+        <div>
+            <p class="eyebrow">Student · Masters' Union</p>
+            <h1>Hi, I'm <em>Ananya</em> Singhania.</h1>
+            <p class="lede">
+                A people person who has spent most of her school life leading from the front, as
+                school captain, a class representative for twelve years running, and the one on
+                stage with the mic. Now I'm building on that at Masters' Union, with a first taste
+                of HR along the way.
+            </p>
+            <div class="links">
+                <a class="btn primary" href="mailto:ananya.singhania@mastersunion.org">Email me</a>
+                <a class="btn" href="https://www.linkedin.com/in/ananya-singhania-94516127a" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="stats">
+        <div class="stat"><b>12 yrs</b><span>Class Representative</span></div>
+        <div class="stat"><b>91%</b><span>Class 10th</span></div>
+        <div class="stat"><b>87%</b><span>Class 12th</span></div>
+        <div class="stat"><b>3 mo</b><span>HR internship</span></div>
+    </div>
+
+    <section class="about">
+        <h2>About me</h2>
+        <p>
+            I like being where people are. Whether I'm running a class, anchoring an event,
+            choreographing a performance or planning a celebration, I'm happiest when I'm
+            bringing a group together and getting things done.
+        </p>
+        <p>
+            That's what pulled me toward human resources. At MyEquation I spent three months
+            as an HR associate and got to see how organisations find, support and keep their people.
+        </p>
+    </section>
+
+    <section>
+        <h2>Experience</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>HR Associate</h3>
+                <div class="meta">MyEquation · 3-month internship</div>
+                <p>Worked with the HR team on people operations: a first hands-on look at how teams are built and supported.</p>
+            </div>
+            <div class="card">
+                <h3>School Captain</h3>
+                <div class="meta">2022 – 2023</div>
+                <p>Led the student body for the year, representing students and organising school-wide events.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Recognition</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Best Student</h3>
+                <p>Recognised for academics, conduct and all-round contribution to school life.</p>
+            </div>
+            <div class="card">
+                <h3>Best Anchor</h3>
+                <p>Awarded for hosting and compering school events and stage programmes.</p>
+            </div>
+            <div class="card">
+                <h3>Class Representative</h3>
+                <p>Chosen by classmates to represent them for twelve years straight.</p>
+            </div>
+            <div class="card">
+                <h3>Education</h3>
+                <p>Scored 91% in Class 10th and 87% in Class 12th. Now at Masters' Union.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Beyond the classroom</h2>
+        <div class="tags">
+            <span class="tag">Leader of the choir group</span>
+            <span class="tag">Choreographer</span>
+            <span class="tag">Celebration organiser</span>
+            <span class="tag">Anchoring &amp; public speaking</span>
+            <span class="tag">Student leadership</span>
+        </div>
+    </section>
+
+    <footer>
+        <span>© 2026 Ananya Singhania</span>
+        <span><a href="mailto:ananya.singhania@mastersunion.org">ananya.singhania@mastersunion.org</a></span>
+    </footer>
+
+</div>
+</body>
+</html>
